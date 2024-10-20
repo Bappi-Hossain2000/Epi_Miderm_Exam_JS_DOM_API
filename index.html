@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TheCocktailDB</title>
+    <!-- Google Font Link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- tailwind css & DaisyUI Links -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font awesome CDN link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Tailwind CSS Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        Poppins: 'Poppins',
+                    }
+                },
+            },
+        }
+    </script>
+    <!-- style css -->
+    <style>
+        .Lato {
+            font-family: "Lato", sans-serif;
+        }
+    </style>
+</head>
+
+<body class="Lato container mx-auto
+">
+    <!-- banner section start -->
+    <header class="">
+        <!-- nav_section -->
+        <nav class="">
+            <div class="navbar bg-base-100">
+                <div class="navbar-start">
+                    <a class="btn btn-ghost text-xl"><i class="fa-solid fa-wine-glass"></i>TheCocktailDB</a>
+                </div>
+                
+                <div class="navbar-end">
+                    <button class="btn bg-red-600 text-white text-xl font-bold">Home</button>
+                    <h3 class="mx-3 text-xl font-bold">API</h3>
+                    <input type="text" placeholder="Search" class="border p-3 rounded-lg">
+                </div>
+            </div>
+        </nav>
+
+        <div class="hero_section mt-16 text-center">
+            
+            <h1 class="text-5xl font-extrabold">Welcome to TheCocktailDB</h1>
+            <p class="my-9">An open, crowd-sourced database of drinks and cocktails from around the world. <br>
+                We also offer a free cocktail API for anyone wanting to use it.</p>
+
+        </div>
+
+    </header>
+    <!-- main section start -->
+    <main class="">
+        <div class="text-center">
+            <hr>
+            <div class=" my-6">
+                <div class="border inline-block rounded">
+
+                    <input id="SearchValue" class=" border-r-2 p-2" type="text" name="" placeholder="Search for cocktail..." >
+                    <i onclick="SearchClick()" id="" class="fa-solid fa-magnifying-glass p-2 px-4 "></i>
+
+                </div>
+                <div class="md:flex justify-center gap-10 my-4">
+                    <h3 class="text-xl font-bold">Total Drinks: 636</h3>
+                    <h3 class="text-xl font-bold">Total Drinks: 636</h3>
+                    <h3 class="text-xl font-bold">Total Drinks: 636</h3>
+
+                </div>
+
+            </div>
+            <hr>
+        </div>
+        
+
+
+        <!--Best Deal For you & Sort by Price -->
+        <div class="Deal_Sort flex justify-between  my-8">
+            <h2 class="py-3 text-2xl font-semibold">Best Deal For you</h2>
+            <button id="sort" class="btn btn-active btn-accent ">Sort by Price</button>
+        </div>
+
+
+<!-- spiner -->
+<div id="loader" class="hidden">
+    <span class="loading loading-bars loading-xs"></span>
+    <span class="loading loading-bars loading-sm"></span>
+    <span class="loading loading-bars loading-md"></span>
+    <span class="loading loading-bars loading-lg"></span>
+</div>
+
+
+        <div id="details" class=" my-5">
+
+            <div id="All_card" class="image_text_card  grid lg:grid-cols-3 gap-10 border p-3 rounded-2xl lg:mr-3">
+
+            </div>
+
+        </div>
+
+
+
+
+
+<!-- modal -->
+ <!-- Open the modal using ID.showModal() method -->
+<button id="showModalData" class="btn hidden" onclick="costomModal.showModal()">open modal</button>
+<dialog id="costomModal" class="modal">
+
+  <div class="modal-box">
+    <div id="modal_content">
+
+    </div>
+
+
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn w-full">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+
+
+
+
+
+
+    </main>
+    <footer class="footer bg-neutral text-neutral-content p-10 bg-black">
+        <nav>
+            <div class="">
+                <i class="fa-solid fa-wine-glass text-xl"></i>
+                <a class="btn btn-ghost text-xl">TheCocktailDB</a>
+            </div>
+            <a class="link link-hover">Location: av. Washington 165, NY CA </a>
+            <a class="link link-hover">54003</a>
+            <a class="link link-hover">Marketing</a>
+            <a class="link link-hover">Phone: +31 85 964 47 25</a>
+            <a class="link link-hover">Email: info@yourdomain.com</a>
+            <a class="link link-hover">Openings hours: 9.00 AM - 5.00 PM</a>
+            <div class="flex gap-3">
+                <a class="link link-hover"><i class="fa-brands fa-facebook"></i></a>
+                <a class="link link-hover"><i class="fa-brands fa-x-twitter"></i></a>
+                <a class="link link-hover"><i class="fa-brands fa-youtube"></i></a>
+                <a class="link link-hover"><i class="fa-brands fa-instagram"></i></a>
+
+            </div>
+        </nav>
+        <nav>
+            <h6 class="footer-title">Useful Links</h6>
+            <a class="link link-hover">Home</a>
+            <a class="link link-hover">About Us</a>
+            <a class="link link-hover">Animals</a>
+            <a class="link link-hover">Foundation</a>
+            <a class="link link-hover">Contact</a>
+        </nav>
+        <nav>
+            <h6 class="footer-title">Drop a Message</h6>
+            <input class="bg-slate-900 p-4 rounded-md" placeholder="Enter your email" type="text">
+            <button class="btn w-full bg-teal-500 outline-none border-none">Subscribe</button>
+        </nav>
+    </footer>
+
+
+
+    <script src="js.js"></script>
+
+</body>
+
+</html>
